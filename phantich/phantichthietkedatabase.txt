@@ -1,0 +1,64 @@
+1)  Bảng role
+    - id: int-> khóa chính tự tăng
+    - name: String (varchar) -20 ký tự
+2) Bảng User
+    - id: int-> khóa chính tự tăng
+    - fullname->string->50 ký tự
+    - email->string->150 ký tự->unique
+    - phone_number->string->20 ký tự
+    - address->string->200 ký tự
+    - password->string->md5->32 ký tự-> chính xác
+    - role_id ->int->foreign key ->role(id)
+3) Bảng danh mục-> Category
+    - id: int-> khóa chính tự tăng
+    - name: string-> 100 ký tự
+4) Bảng sản phẩm->product
+    - id: int-> khóa chính tự tăng
+    - category_id: int->foreign key -> category(id)
+    - title: string-> 350 ký tự
+    - price: int
+    - discount: int
+    - thumbnail: String -> 500 ký tự
+    - description: longtext
+    - created_at: datetime -> tạo bản ghi
+    - updated_ at: datetime -> sửa bản ghi đó
+5) Bảng quản lý galery
+    - id: int-> khóa chính tự tăng
+    - product_id: int -> foreign key -> product(id)
+    - thumbnail: String->500 ký tự
+6) Bảng quản lý phản hồi->feedback
+    - id: int-> khóa chính tự tăng
+    - firstname ->string->30 ký tự
+    - lastname->String->30 ký tự
+    - email->string->150 ký tự
+    - phone_number->string->20 ký tự
+    - subject_name: String->200 ký tự
+    - note -> string(varchar)-> độ dài tối đa-> 500 ký tự
+7) Quản lý đơn hàng
+    - id: int-> khóa chính tự tăng
+    - fullname
+    - email 
+    - phone_number
+    - address
+    - note
+    - order_date: datetime-> thời điểm đặt đơn hàng
+    - Danh sách sản phẩm:
+        + Sản phẩm 1: số lượng / giá thời điểm mua 
+        + Sản phẩm 2: số lượng / giá thời điểm mua
+    7.1) Bảng order
+        - id: int tự tăng
+        - user_id: int -> foreign key ->user(id)
+        - fullname
+        - email 
+        - phone_number
+        - address
+        - note
+        - order_date: datetime-> thời điểm đặt đơn hàng
+        - total_money-> tổng tiền của đơn hàng
+    7.2) Bảng chi tiết đơn hàng
+        - id: int tự tăng
+        - order_id: int->foreign key->order(id)
+        - product_id: int->foreign key->product(id)
+        - price: int
+        - num: int->số lượng sản phẩm mua
+        - total_money: lưu tổng tiền của sản phẩm(price * num)

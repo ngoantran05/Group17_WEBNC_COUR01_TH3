@@ -1,0 +1,21 @@
+1. Frontend:
+    - Trang chủ
+    - Trang danh sách sản phẩm
+    - Trang chi tiết sản phẩm 
+    - Trang giỏ hàng
+    - Trang checkout
+    - Trang thanh toán hoàn thành
+    - Trang liên hệ
+2. Admin:
+    -Tài khoản người dùng:
+        + Quản lý role(admin, user)
+        + Quản lý người dùng: admin/user
+            Hiển thị danh sách/thêm/sửa /xóa
+        + Đăng ký tài khoản
+        + Đăng nhập
+    - Quản lý danh mục sản phẩm
+    - Quản lý sản phẩm 
+    - Quản lý đơn hàng
+        + Hiện thị đc danh sách đơn hàng-> hiển thị giảm dần theo thời gian(quản lý đc trạng thái đơn hàng)
+    - Quản lý phản hồi
+    
