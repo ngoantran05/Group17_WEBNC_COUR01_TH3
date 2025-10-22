@@ -10,7 +10,6 @@
             <div class="header-icons d-flex align-items-center">
 
                 @guest
-                    {{-- Nếu là Khách --}}
                     <a href="{{ route('register.form') }}" class="icon-link">
                         <i class="bi bi-person-plus"></i>
                         <span>Đăng ký</span>
@@ -20,7 +19,7 @@
                         <span>Đăng nhập</span>
                     </a>
                 @else
-                    {{-- Nếu đã Đăng nhập --}}
+
                     <div class="nav-item dropdown">
                         <a class="icon-link dropdown-toggle" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="bi bi-person-circle"></i>
@@ -44,7 +43,6 @@
                     </div>
                 @endguest
 
-                {{-- Giỏ hàng (Luôn hiển thị) --}}
                 <a href="{{ route('cart.index') }}" class="icon-link">
                     <i class="bi bi-cart"></i>
                     <span>Giỏ hàng</span>

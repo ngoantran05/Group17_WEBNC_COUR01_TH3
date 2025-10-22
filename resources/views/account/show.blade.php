@@ -28,15 +28,13 @@
                 <form action="{{ route('account.update') }}" method="POST">
                     @csrf
                     
-                    {{-- Tên --}}
                     <div class="mb-3">
                         <label for="name" class="form-label">Họ và Tên</label>
                         <input type="text" class="form-control" id="name" name="name" 
                                value="{{ old('name', $user->name) }}" required>
                         @error('name') <span class="text-danger small">{{ $message }}</span> @enderror
                     </div>
-                    
-                    {{-- Email --}}
+
                     <div class="mb-3">
                         <label for="email" class="form-label">Email</label>
                         <input type="email" class="form-control" id="email" name="email" 
@@ -44,7 +42,6 @@
                         @error('email') <span class="text-danger small">{{ $message }}</span> @enderror
                     </div>
 
-                    {{-- SĐT --}}
                     <div class="mb-3">
                         <label for="phone_number" class="form-label">Số điện thoại</label>
                         <input type="tel" class="form-control" id="phone_number" name="phone_number" 
@@ -52,7 +49,6 @@
                         @error('phone_number') <span class="text-danger small">{{ $message }}</span> @enderror
                     </div>
 
-                    {{-- Địa chỉ --}}
                     <div class="mb-3">
                         <label for="address" class="form-label">Địa chỉ</label>
                         <input type="text" class="form-control" id="address" name="address" 
@@ -63,22 +59,19 @@
                     <h4 class="mt-5">Đổi mật khẩu</h4>
                     <hr>
                     <p class="text-muted">Để trống nếu bạn không muốn đổi mật khẩu.</p>
-                    
-                    {{-- Mật khẩu hiện tại --}}
+
                     <div class="mb-3">
                         <label for="current_password" class="form-label">Mật khẩu hiện tại</label>
                         <input type="password" class="form-control" id="current_password" name="current_password">
                         @error('current_password') <span class="text-danger small">{{ $message }}</span> @enderror
                     </div>
-                    
-                    {{-- Mật khẩu mới --}}
+
                     <div class="mb-3">
                         <label for="new_password" class="form-label">Mật khẩu mới</label>
                         <input type="password" class="form-control" id="new_password" name="new_password">
                         @error('new_password') <span class="text-danger small">{{ $message }}</span> @enderror
                     </div>
 
-                    {{-- Xác nhận mật khẩu mới --}}
                     <div class="mb-3">
                         <label for="new_password_confirmation" class="form-label">Xác nhận mật khẩu mới</label>
                         <input type="password" class="form-control" id="new_password_confirmation" name="new_password_confirmation">

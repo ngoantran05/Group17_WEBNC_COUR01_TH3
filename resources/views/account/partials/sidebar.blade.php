@@ -9,7 +9,7 @@
            Lịch sử đơn hàng
         </a>
 
-        {{-- Nút Đăng xuất cho di động (tùy chọn) --}}
+        {{-- Nút Đăng xuất cho di động --}}
         <form method="POST" action="{{ route('logout') }}">
             @csrf
             <button type="submit" class="list-group-item list-group-item-action">

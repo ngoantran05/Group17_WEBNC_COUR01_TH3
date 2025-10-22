@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng nhập</title>
-    {{-- Link đến file CSS chúng ta sẽ tạo ở bước 4 --}}
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 </head>
 <body>
@@ -14,14 +13,12 @@
 
             <h2>Đăng nhập</h2>
 
-            {{-- Form trỏ đến route 'login.submit' --}}
             <form method="POST" action="{{ route('login.submit') }}">
                 @csrf
 
                 <div class="form-group">
                     <label for="email">Email:</label>
                     <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus>
-                    {{-- Hiển thị lỗi chung (nếu đăng nhập sai) --}}
                     @error('email')
                         <span class="error-message">{{ $message }}</span>
                     @enderror

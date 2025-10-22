@@ -2,13 +2,12 @@
 
 @section('title', 'Trang chủ')
 
-{{-- Nạp các file CSS cần thiết --}}
+
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/promotions.css') }}"> {{-- Tái sử dụng CSS Khuyến mãi --}}
 @endpush
 
-{{-- Nạp JS cho nút "Copy" khuyến mãi --}}
 @push('scripts')
     <script src="{{ asset('js/promotions.js') }}" defer></script>
 @endpush
@@ -30,7 +29,6 @@
         @foreach($featuredCategories as $category)
             <div class="col-md-3 col-6">
                 <a href="{{ route('products.index', ['categories[]' => $category->id]) }}" class="category-card">
-                    {{-- LƯU Ý: Bạn cần tự thêm ảnh cho danh mục, ví dụ: /images/cat_ao.jpg --}}
                     <img src="{{ asset('images/cat_' . $category->slug . '.jpg') }}" alt="{{ $category->name }}">
                     <div class="category-card-title">{{ $category->name }}</div>
                 </a>

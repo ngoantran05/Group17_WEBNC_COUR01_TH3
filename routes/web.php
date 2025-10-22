@@ -11,36 +11,31 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\ContactController;
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Route::resource('products', ProductController::class);
 // Route::resource('orders', OrderController::class);
+//ROUTE SẢN PHẨM
 Route::get('/sanpham', [ProductController::class, 'index'])->name('products.index');
 Route::get('/san-pham/{slug}', [ProductController::class, 'show'])->name('products.show');
+//ROUTE ĐĂNG KÝ TÀI KHOẢN
 Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register.form');
 Route::post('/register', [RegisterController::class, 'register'])->name('register.submit');
+//ROUTE ĐĂNG NHẬP - ĐĂNG XUẤT
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
 Route::post('/login', [LoginController::class, 'login'])->name('login.submit');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-// 1. Hiển thị trang giỏ hàng
+//ROUTE GIỎ HÀNG 
 Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
-
-// 2. Xử lý "Thêm vào giỏ hàng" (từ trang chi tiết sản phẩm)
 Route::post('/cart/store', [CartController::class, 'store'])->name('cart.store');
 
-// 3. Xử lý "Mua ngay"
 Route::post('/checkout/buy-now', function() {
-    // Tạm thời
     dd(request()->all(), "ĐANG MUA NGAY"); 
 })->name('checkout.buyNow');
 
-// 4. Cập nhật số lượng (dùng $cartId)
 Route::patch('/cart/update/{cartId}', [CartController::class, 'update'])->name('cart.update');
-
-// 5. Xóa sản phẩm (dùng $cartId)
 Route::delete('/cart/remove/{cartId}', [CartController::class, 'destroy'])->name('cart.destroy');
-
-// 6. Xóa toàn bộ giỏ hàng
 Route::get('/cart/clear', [CartController::class, 'clear'])->name('cart.clear');
 
 //ROUTE THANH TOÁN (CHECKOUT)

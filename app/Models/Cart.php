@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 class Cart extends Model
 {
     use HasFactory;
-    protected $fillable = ['user_id']; // Cho phép tạo nhanh
+    protected $fillable = ['user_id']; 
 
     public function user()
     {
@@ -15,7 +15,6 @@ class Cart extends Model
 
     public function items()
     {
-        // Một giỏ hàng có nhiều sản phẩm
         return $this->hasMany(CartItem::class);
     }
 }

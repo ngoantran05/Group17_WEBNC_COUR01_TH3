@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{ asset('css/checkout.css') }}">
 @endpush
 
-{{-- Nạp file JS cho trang checkout (địa chỉ + giảm giá) --}}
 @push('scripts')
     <script src="{{ asset('js/checkout.js') }}" defer></script>
 @endpush
@@ -51,7 +50,6 @@
 
                 <h4 class="box-title mt-4">Địa chỉ giao hàng</h4>
                 
-                {{-- === KHỐI ĐỊA CHỈ ĐÃ SỬA === --}}
                 <div class="form-group">
                     <label for="province-select">Tỉnh/Thành phố</label>
                     <select name="province" id="province-select" class="form-select" required>
@@ -70,7 +68,6 @@
                         <option value="">-- Chọn Phường/Xã --</option>
                     </select>
                 </div>
-                {{-- ========================== --}}
                 
                 <div class="form-group">
                     <label for="address">Số nhà, tên đường</label>

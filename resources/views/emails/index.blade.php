@@ -13,7 +13,6 @@
         Có câu hỏi? Gửi tin nhắn cho chúng tôi và chúng tôi sẽ phản hồi sớm nhất.
     </p>
 
-    {{-- Hiển thị thông báo (Thành công hoặc Lỗi) --}}
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
@@ -77,7 +76,6 @@
                 Thứ 2 - Chủ Nhật: 9:00 - 21:00
             </p>
 
-            {{-- Bạn có thể nhúng Google Map ở đây --}}
             <div class="map-placeholder">
                 <iframe 
                     src="https://www.google.com/maps/embed?..." 

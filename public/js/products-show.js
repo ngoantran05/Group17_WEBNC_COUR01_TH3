@@ -1,5 +1,3 @@
-/* File: public/js/products-show.js */
-
 document.addEventListener('DOMContentLoaded', function() {
     const cartForm = document.getElementById('add-to-cart-form');
     
@@ -14,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let isValid = true;
             
-            // 1. Kiểm tra Size
             const sizeGroup = document.getElementById('size-group');
             const sizeError = document.getElementById('size-error');
             if (sizeGroup) { 
@@ -29,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // 2. Kiểm tra Màu sắc
             const colorGroup = document.getElementById('color-group');
             const colorError = document.getElementById('color-error');
             if (colorGroup) { 
@@ -44,7 +40,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
 
-            // 3. Nếu không hợp lệ, ngăn form gửi đi
             if (!isValid) {
                 e.preventDefault(); 
             }

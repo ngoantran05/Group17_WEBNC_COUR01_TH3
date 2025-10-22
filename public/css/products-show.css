@@ -1,12 +1,9 @@
-/* File: public/css/products-show.css */
-
 .product-detail-price {
     font-size: 2.5rem;
     font-weight: 700;
     color: #d9534f;
 }
 
-/* Tùy chỉnh cho lựa chọn Size (dùng radio button) */
 .size-option input[type="radio"] {
     display: none;
 }
@@ -30,7 +27,6 @@
     border-color: #dee2e6;
 }
 
-/* Tùy chỉnh cho lựa chọn Màu sắc */
 .color-swatch {
     display: inline-block;
     width: 32px;
@@ -59,8 +55,6 @@
     opacity: 0.5;
     cursor: not-allowed;
 }
-
-/* Hiển thị lỗi validation của JS */
 .invalid-feedback.d-block {
     display: block !important;
 }

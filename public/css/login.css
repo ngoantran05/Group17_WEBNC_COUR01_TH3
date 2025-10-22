@@ -1,5 +1,3 @@
-/* File: public/css/login-style.css */
-
 body, html {
     margin: 0;
     padding: 0;
@@ -13,8 +11,6 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    
-    /* Đường dẫn đến hình nền của bạn */
     background-image: url('../img/background.jpg'); 
     background-size: cover;
     background-position: center;
@@ -22,34 +18,27 @@ body, html {
 
 .login-form-wrapper {
     background-color: rgba(255, 255, 255, 0.95);
-    
-    /* === SỬA KÍCH THƯỚC === */
-    padding: 20px 30px; /* Giống hệt form đăng ký */
+    padding: 20px 30px; 
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     width: 100%;
-    max-width: 350px; /* Giống hệt form đăng ký */
+    max-width: 350px; 
 }
 
 h2 {
     text-align: center;
     color: #333;
-    
-    /* === SỬA KÍCH THƯỚC === */
     margin: 0 0 18px 0; 
     font-size: 26px;
     font-weight: 600;
 }
 
 .form-group {
-    /* === SỬA KÍCH THƯỚC === */
-    margin-bottom: 10px; /* Giống hệt form đăng ký */
+    margin-bottom: 10px; 
 }
 
 .form-group label {
     display: block;
-    
-    /* === SỬA KÍCH THƯỚC === */
     margin-bottom: 4px;
     color: #555;
     font-weight: 500;
@@ -59,10 +48,7 @@ h2 {
 .form-group input[type="email"],
 .form-group input[type="password"] {
     width: 100%;
-    
-    /* === SỬA KÍCH THƯỚC === */
-    padding: 9px; /* Giống hệt form đăng ký */
-    
+    padding: 9px; 
     border: 1px solid #ccc;
     border-radius: 8px;
     box-sizing: border-box;
@@ -78,10 +64,8 @@ h2 {
 
 .form-helper {
     text-align: right;
-    
-    /* === SỬA KÍCH THƯỚC === */
-    margin-top: 5px; /* Giảm khoảng cách trên */
-    margin-bottom: 15px; /* Giảm khoảng cách dưới */
+    margin-top: 5px; 
+    margin-bottom: 15px; 
 }
 
 .forgot-password {
@@ -94,16 +78,12 @@ h2 {
 }
 
 .form-buttons {
-    /* === SỬA KÍCH THƯỚC === */
-    margin-top: 18px; /* Giống hệt form đăng ký */
+    margin-top: 18px; 
 }
 
 .btn {
     width: 100%;
-    
-    /* === SỬA KÍCH THƯỚC === */
-    padding: 10px; /* Giống hệt form đăng ký */
-    
+    padding: 10px; 
     border: none;
     border-radius: 8px;
     font-size: 15px;
@@ -115,7 +95,7 @@ h2 {
 }
 
 .btn-submit {
-    background-color: #17A2B8; /* Màu xanh */
+    background-color: #17A2B8; 
     color: white;
 }
 
@@ -125,10 +105,7 @@ h2 {
 
 .register-link {
     text-align: center;
-    
-    /* === SỬA KÍCH THƯỚC === */
-    margin-top: 18px; /* Giống hệt form đăng ký */
-    
+    margin-top: 18px; 
     font-size: 14px;
     color: #555;
 }

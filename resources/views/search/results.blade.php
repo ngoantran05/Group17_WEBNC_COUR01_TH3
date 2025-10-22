@@ -3,7 +3,6 @@
 @section('title', 'Kết quả tìm kiếm cho "' . e($query) . '"')
 
 @push('styles')
-    {{-- Tái sử dụng CSS từ trang home để hiển thị product card --}}
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 @endpush
 
@@ -25,7 +24,6 @@
         <div class="row g-4">
             @foreach($products as $product)
                 <div class="col-md-3 col-6">
-                    {{-- Tái sử dụng style .product-card từ home.css --}}
                     <div class="product-card">
                         <a href="{{ route('products.show', $product->slug) }}">
                             <img src="{{ $product->main_image_url ?? 'https://via.placeholder.com/300' }}" alt="{{ $product->name }}">
@@ -40,9 +38,7 @@
             @endforeach
         </div>
 
-        {{-- Phân trang --}}
         <div class="d-flex justify-content-center mt-5">
-            {{-- Thêm withQueryString() để giữ ?query=... khi chuyển trang --}}
             {{ $products->withQueryString()->links() }}
         </div>
     @endif

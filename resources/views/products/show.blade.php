@@ -1,14 +1,11 @@
 @extends('layouts.app')
 
-{{-- Đặt tiêu đề trang theo tên sản phẩm --}}
 @section('title', $product->name)
 
-{{-- Nạp file CSS cho trang này --}}
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/products-show.css') }}">
 @endpush
 
-{{-- Nạp file JS cho trang này --}}
 @push('scripts')
     <script src="{{ asset('js/products-show.js') }}" defer></script>
 @endpush
@@ -16,7 +13,6 @@
 
 @section('content')
 <div class="container">
-    {{-- 1. Breadcrumb --}}
     <nav aria-label="breadcrumb" class="py-3">
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
@@ -32,17 +28,13 @@
         </ol>
     </nav>
 
-    {{-- 2. Thông tin chính của sản phẩm --}}
     <div class="row g-5">
-        
-        {{-- 2a. Ảnh sản phẩm --}}
         <div class="col-lg-6">
             <img src="{{ $product->main_image_url ?? 'https://via.placeholder.com/600x600.png?text=Product+Image' }}" 
                  alt="{{ $product->name }}" 
                  class="img-fluid rounded shadow-sm w-100">
         </div>
 
-        {{-- 2b. Thông tin và Form mua hàng --}}
         <div class="col-lg-6">
             <h1 class="display-5 fw-bold">{{ $product->name }}</h1>
             
@@ -50,7 +42,6 @@
                 {{ number_format($product->price, 0, ',', '.') }}đ
             </p>
 
-            {{-- Tình trạng sản phẩm --}}
             <div class="mb-3">
                 <h5 class="fw-bold d-inline-block me-2">Tình trạng:</h5>
                 @if($product->stock > 0)
@@ -64,14 +55,11 @@
 
             <hr>
 
-            {{-- FORM THÊM VÀO GIỎ HÀNG (với id="add-to-cart-form") --}}
-            {{-- Action mặc định là 'Thêm giỏ hàng' --}}
             <form action="{{ route('cart.store') }}" method="POST" id="add-to-cart-form">
             
                 @csrf
                 <input type="hidden" name="product_id" value="{{ $product->id }}">
 
-                {{-- Lựa chọn Size (với id="size-group") --}}
                 @if($product->sizes->isNotEmpty())
                     <div class="mb-3" id="size-group">
                         <h5 class="fw-bold">Size:</h5>
@@ -88,7 +76,6 @@
                     </div>
                 @endif
 
-                {{-- Lựa chọn Màu sắc (với id="color-group") --}}
                 @if($product->colors->isNotEmpty())
                     <div class="mb-3" id="color-group">
                         <h5 class="fw-bold">Màu sắc:</h5>

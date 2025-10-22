@@ -19,7 +19,6 @@
         Có câu hỏi? Gửi tin nhắn cho chúng tôi và chúng tôi sẽ phản hồi sớm nhất.
     </p>
 
-    {{-- Hiển thị thông báo (Thành công hoặc Lỗi) --}}
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif

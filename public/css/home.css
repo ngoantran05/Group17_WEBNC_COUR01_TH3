@@ -1,10 +1,7 @@
-/* File: public/css/home.css */
-
-/* 1. Hero Banner */
 .hero-section {
     position: relative;
     height: 60vh;
-    background-image: url('../images/home-banner.jpg'); /* <-- BẠN PHẢI TỰ THÊM ẢNH NÀY */
+    background-image: url('../images/home-banner.jpg'); 
     background-size: cover;
     background-position: center;
     color: white;
@@ -23,7 +20,6 @@
     line-height: 1.2;
 }
 
-/* 2. Danh mục nổi bật */
 .category-card {
     position: relative;
     overflow: hidden;
@@ -52,7 +48,6 @@
     text-align: center;
 }
 
-/* 3. Sản phẩm nổi bật */
 .product-section {
     background-color: #f8f9fa;
     padding: 60px 0;
@@ -102,7 +97,6 @@
     background-color: #5abcb3;
 }
 
-/* 4. Deal Banner */
 .deal-banner {
     background-color: #6ed3df;
     padding: 50px 0;

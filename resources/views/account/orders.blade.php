@@ -50,7 +50,6 @@
                     </table>
                 </div>
 
-                {{-- Phân trang --}}
                 <div class="d-flex justify-content-center">
                     {{ $orders->links() }}
                 </div>

@@ -1,11 +1,10 @@
-/* Bố cục chính */
+
 .checkout-layout {
     display: grid;
     grid-template-columns: 2fr 1.5fr 1.5fr;
     gap: 30px;
 }
 
-/* Kiểu chung cho các box */
 .checkout-box {
     background-color: #F8F8F8;
     padding: 25px;
@@ -17,7 +16,6 @@
     margin-bottom: 20px;
 }
 
-/* Cột 1: Form */
 .form-group {
     margin-bottom: 15px;
 }
@@ -40,7 +38,6 @@
     resize: vertical;
 }
 
-/* Cột 2: Payment */
 .payment-method {
     background-color: #fff;
     padding: 15px;
@@ -53,7 +50,6 @@
     margin-right: 10px;
 }
 
-/* Cột 3: Summary */
 .summary-item {
     display: flex;
     justify-content: space-between;
@@ -66,7 +62,6 @@
     color: #555;
 }
 
-/* === CSS MỚI CHO ĐỊA CHỈ === */
 .form-group select.form-select {
     width: 100%;
     padding: 10px;
@@ -86,9 +81,7 @@
 .form-group select.form-select:disabled {
     background-color: #e9ecef;
 }
-/* ========================== */
 
-/* Responsive */
 @media (max-width: 992px) {
     .checkout-layout {
         grid-template-columns: 1fr;

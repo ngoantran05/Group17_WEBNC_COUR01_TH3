@@ -2,7 +2,6 @@
 
 @section('title', 'Chương trình Khuyến mãi')
 
-{{-- Nạp file CSS và JS cho trang này --}}
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/promotions.css') }}">
 @endpush
@@ -24,7 +23,6 @@
         Sử dụng mã giảm giá dưới đây để nhận được ưu đãi tốt nhất!
     </p>
 
-    {{-- Lưới hiển thị các thẻ khuyến mãi --}}
     <div class="promotion-grid">
         @forelse ($promotions as $promo)
             <div class="promo-card">
@@ -46,7 +44,6 @@
                     
                     <div class="promo-code-wrapper">
                         <span class="promo-code" id="code-{{ $promo->id }}">{{ $promo->code }}</span>
-                        {{-- Nút Copy (sẽ được xử lý bằng JS) --}}
                         <button class="btn-copy-code" data-clipboard-target="#code-{{ $promo->id }}">
                             Sao chép
                         </button>

@@ -30,11 +30,10 @@ class ProductController extends Controller
             $query->whereIn('product_type_id', $request->input('types'));
         }
 
-        // Lọc theo Mức giá (prices)
         if ($request->filled('prices')) {
             $query->where(function ($q) use ($request) {
                 foreach ($request->input('prices') as $range) {
-                    $parts = explode('-', $range); // Tách chuỗi "100000-200000"
+                    $parts = explode('-', $range); 
                     if (count($parts) == 2) {
                         $q->orWhereBetween('price', [$parts[0], $parts[1]]);
                     }
@@ -42,14 +41,12 @@ class ProductController extends Controller
             });
         }
 
-        // Lọc theo Size (dùng quan hệ many-to-many -> whereHas)
         if ($request->filled('sizes')) {
             $query->whereHas('sizes', function ($q) use ($request) {
                 $q->whereIn('size_id', $request->input('sizes'));
             });
         }
 
-        // Lọc theo Màu sắc (dùng quan hệ many-to-many -> whereHas)
         if ($request->filled('colors')) {
             $query->whereHas('colors', function ($q) use ($request) {
                 $q->whereIn('color_id', $request->input('colors'));
@@ -59,8 +56,7 @@ class ProductController extends Controller
             $q->whereIn('gender', $genders);
         });
 
-        // 3. XỬ LÝ SẮP XẾP (SORTING)
-        $sortBy = $request->input('sort_by', 'moi-nhat'); // Mặc định là 'mới nhất'
+        $sortBy = $request->input('sort_by', 'moi-nhat'); 
 
         switch ($sortBy) {
             case 'gia-thap-cao':
@@ -75,10 +71,7 @@ class ProductController extends Controller
                 break;
         }
 
-        // 4. LẤY KẾT QUẢ PHÂN TRANG
-        $products = $query->paginate(12)->appends($request->query()); // 9 sản phẩm/trang
-
-        // 5. LẤY DỮ LIỆU CHO SIDEBAR FILTER
+        $products = $query->paginate(12)->appends($request->query()); 
         $categories = Category::all();
         $productTypes = ProductType::all();
         $sizes = Size::all();
@@ -96,7 +89,6 @@ class ProductController extends Controller
             '500000-1000000' => 'Từ 500.000đ - 1 triệu',
         ];
 
-        // 6. TRẢ VỀ VIEW VÀ TRUYỀN DỮ LIỆU
         return view('products.index', [
             'products' => $products,
             'categories' => $categories,
@@ -105,30 +97,24 @@ class ProductController extends Controller
             'colors' => $colors,
             'priceRanges' => $priceRanges,
             'genders' => $genders,
-            'input' => $request->all() // (Tùy chọn) Gửi lại để checked các ô
+            'input' => $request->all()
         ]);
     }
 
-    /**
-     * === BỔ SUNG HÀM NÀY ===
-     * Hiển thị trang chi tiết một sản phẩm.
-     */
     public function show($slug)
     {
-        // Tìm sản phẩm theo 'slug', nếu không thấy sẽ báo lỗi 404
         $product = Product::where('slug', $slug)
                             ->where('is_active', true)
-                            ->with(['category', 'productType', 'sizes', 'colors']) // Lấy kèm data quan hệ
+                            ->with(['category', 'productType', 'sizes', 'colors']) 
                             ->firstOrFail();
 
-        // Lấy các sản phẩm liên quan
         $relatedProducts = Product::where('category_id', $product->category_id)
                                     ->where('id', '!=', $product->id)
                                     ->where('is_active', true)
                                     ->limit(4)
                                     ->get();
 
-        return view('products.show', [ // Bạn sẽ cần tạo view 'products.show'
+        return view('products.show', [ 
             'product' => $product,
             'relatedProducts' => $relatedProducts
         ]);

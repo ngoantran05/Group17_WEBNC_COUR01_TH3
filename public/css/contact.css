@@ -47,9 +47,9 @@
     border: 1px solid #ddd;
 }
 
-/* Responsive cho di động */
+
 @media (max-width: 992px) {
     .contact-layout {
-        grid-template-columns: 1fr; /* Chuyển thành 1 cột */
-    }
+        grid-template-columns: 1fr; 
+}
 }

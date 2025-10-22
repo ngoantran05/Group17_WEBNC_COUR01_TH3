@@ -3,7 +3,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 class CartItem extends Model {
-    // protected $guarded = [];
     protected $fillable = [
         'cart_id', 
         'product_id', 
@@ -19,7 +18,6 @@ class CartItem extends Model {
         return $this->belongsTo(Size::class);
     }
 
-    // (Tùy chọn) Lấy thông tin màu
     public function color()
     {
         return $this->belongsTo(Color::class);

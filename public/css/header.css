@@ -1,18 +1,15 @@
-/* === TẦNG TRÊN (Tìm kiếm, Icon) === */
 .top-bar {
     background-color: #f0f0f0;
     padding: 15px 0;
 }
 
-/* SỬA LẠI KHỐI NÀY: Căn giữa thanh tìm kiếm */
 .top-bar .container {
     position: relative;
     display: flex;
-    justify-content: center; /* Đẩy thanh tìm kiếm ra giữa */
+    justify-content: center; 
     align-items: center;
 }
 
-/* Thanh tìm kiếm */
 .search-bar {
     max-width: 500px;
     width: 100%;
@@ -42,10 +39,9 @@
     background-color: #b0b0d0;
 }
 
-/* SỬA LẠI KHỐI NÀY: Đặt icon ở bên phải */
 .header-icons {
-    position: absolute; /* Đặt icon ở lề phải */
-    right: 12px; /* 12px là padding mặc định của .container */
+    position: absolute; 
+    right: 12px; 
     top: 50%;
     transform: translateY(-50%);
     display: flex;
@@ -75,8 +71,6 @@
     padding: 3px 6px;
 }
 
-
-/* === TẦNG DƯỚI (Menu chính) === */
 .main-navbar {
     background-color: #6ed3df;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);

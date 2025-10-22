@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-    // === PHẦN MÃ GIẢM GIÁ ===
     const applyBtn = document.getElementById('apply-discount-btn');
     const discountInput = document.getElementById('discount-code-input');
     const messageContainer = document.getElementById('discount-message');
@@ -48,10 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
-    // === KẾT THÚC PHẦN MÃ GIẢM GIÁ ===
 
-
-    // === PHẦN MỚI: XỬ LÝ ĐỊA CHỈ ĐỘNG ===
     const apiHost = 'https://provinces.open-api.vn/api/';
     const provinceSelect = document.getElementById('province-select');
     const districtSelect = document.getElementById('district-select');
@@ -73,9 +69,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function renderOptions(selectElement, data, defaultText) {
         selectElement.innerHTML = `<option value="">-- ${defaultText} --</option>`;
         data.forEach(item => {
-            // Giá trị là TÊN (vì Controller lưu tên)
             const option = new Option(item.name, item.name);
-            option.dataset.code = item.code; // Lưu 'code'
+            option.dataset.code = item.code; 
             selectElement.appendChild(option);
         });
         selectElement.disabled = false;
@@ -127,5 +122,4 @@ document.addEventListener('DOMContentLoaded', function() {
     if(provinceSelect) {
         loadProvinces();
     }
-    // === KẾT THÚC PHẦN XỬ LÝ ĐỊA CHỈ ===
 });
