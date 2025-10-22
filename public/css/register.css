@@ -1,0 +1,119 @@
+/* File: public/css/register-style.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.register-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Cập nhật đường dẫn hình nền của bạn ở đây */
+    background-image: url('../img/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.register-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+    
+    /* Kích thước nhỏ gọn */
+    padding: 20px 30px; 
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px; /* Chiều rộng tối đa của form */
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin: 0 0 18px 0; /* Giảm khoảng cách */
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.form-group {
+    margin-bottom: 10px; /* Giảm khoảng cách giữa các ô */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 4px; /* Giảm khoảng cách label-input */
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group textarea {
+    width: 100%;
+    padding: 9px; /* Giảm chiều cao ô input */
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 13px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group textarea {
+    resize: vertical;
+    height: 50px; /* Giảm chiều cao ô địa chỉ */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px; /* Giảm khoảng cách trên nút */
+}
+
+.btn {
+    width: 100%;
+    padding: 10px; /* Giảm chiều cao nút */
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.btn-submit {
+    background-color: #17A2B8; /* Màu xanh */
+    color: white;
+}
+
+.btn-cancel {
+    background-color: #6C757D; /* Màu xám */
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+/* Hiển thị lỗi validation */
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}

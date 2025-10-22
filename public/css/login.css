@@ -1,0 +1,149 @@
+/* File: public/css/login-style.css */
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Đường dẫn đến hình nền của bạn */
+    background-image: url('../img/background.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+.login-form-wrapper {
+    background-color: rgba(255, 255, 255, 0.95);
+    
+    /* === SỬA KÍCH THƯỚC === */
+    padding: 20px 30px; /* Giống hệt form đăng ký */
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 350px; /* Giống hệt form đăng ký */
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    
+    /* === SỬA KÍCH THƯỚC === */
+    margin: 0 0 18px 0; 
+    font-size: 26px;
+    font-weight: 600;
+}
+
+.form-group {
+    /* === SỬA KÍCH THƯỚC === */
+    margin-bottom: 10px; /* Giống hệt form đăng ký */
+}
+
+.form-group label {
+    display: block;
+    
+    /* === SỬA KÍCH THƯỚC === */
+    margin-bottom: 4px;
+    color: #555;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    
+    /* === SỬA KÍCH THƯỚC === */
+    padding: 9px; /* Giống hệt form đăng ký */
+    
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 13px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.3);
+}
+
+.form-helper {
+    text-align: right;
+    
+    /* === SỬA KÍCH THƯỚC === */
+    margin-top: 5px; /* Giảm khoảng cách trên */
+    margin-bottom: 15px; /* Giảm khoảng cách dưới */
+}
+
+.forgot-password {
+    font-size: 13px;
+    color: #007bff;
+    text-decoration: none;
+}
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+.form-buttons {
+    /* === SỬA KÍCH THƯỚC === */
+    margin-top: 18px; /* Giống hệt form đăng ký */
+}
+
+.btn {
+    width: 100%;
+    
+    /* === SỬA KÍCH THƯỚC === */
+    padding: 10px; /* Giống hệt form đăng ký */
+    
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.3s;
+}
+
+.btn-submit {
+    background-color: #17A2B8; /* Màu xanh */
+    color: white;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.register-link {
+    text-align: center;
+    
+    /* === SỬA KÍCH THƯỚC === */
+    margin-top: 18px; /* Giống hệt form đăng ký */
+    
+    font-size: 14px;
+    color: #555;
+}
+.register-link a {
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 12px;
+    margin-top: 5px;
+    display: block;
+}
