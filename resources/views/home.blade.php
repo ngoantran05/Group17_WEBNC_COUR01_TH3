@@ -1,103 +1,32 @@
 @extends('layouts.app')
-
-@section('title', 'Trang chủ')
-
-
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/promotions.css') }}"> {{-- Tái sử dụng CSS Khuyến mãi --}}
-@endpush
-
-@push('scripts')
-    <script src="{{ asset('js/promotions.js') }}" defer></script>
-@endpush
-
 @section('content')
-
-<section class="hero-section">
-    <div class="container">
-        <div class="hero-content">
-            <h1>Build Your Signature Look</h1>
-            <p class="lead">Start with the Foundation.</p>
+    <div class="bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto py-16 px-4 sm:py-24 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">Chào mừng đến với My Shop</h1>
+            <p class="mt-6 max-w-lg mx-auto text-xl text-blue-100">Nơi tốt nhất để tìm thấy sản phẩm bạn yêu thích.</p>
         </div>
     </div>
-</section>
-
-<section class="container my-5">
-    <h2 class="text-center mb-4" style="font-weight: 700;">Danh mục nổi bật</h2>
-    <div class="row g-4">
-        @foreach($featuredCategories as $category)
-            <div class="col-md-3 col-6">
-                <a href="{{ route('products.index', ['categories[]' => $category->id]) }}" class="category-card">
-                    <img src="{{ asset('images/cat_' . $category->slug . '.jpg') }}" alt="{{ $category->name }}">
-                    <div class="category-card-title">{{ $category->name }}</div>
-                </a>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div class="mb-16">
+            <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-8">Danh mục Sản phẩm</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                @foreach ($categories as $category)
+                    <a href="{{ route('category.show', $category->slug) }}" class="bg-white px-5 py-3 rounded-full shadow-sm border border-gray-200 text-gray-700 font-medium hover:bg-gray-100 hover:shadow transition-all">{{ $category->name }}</a>
+                @endforeach
             </div>
-        @endforeach
-    </div>
-</section>
-
-<section class="product-section">
-    <div class="container">
-        <h2 class="text-center mb-4" style="font-weight: 700;">Sản phẩm nổi bật</h2>
-        <div class="row g-4">
-            @foreach($featuredProducts as $product)
-                <div class="col-md-3 col-6">
-                    <div class="product-card">
-                        <a href="{{ route('products.show', $product->slug) }}">
-                            <img src="{{ $product->main_image_url ?? 'https://via.placeholder.com/300' }}" alt="{{ $product->name }}">
-                        </a>
-                        <div class="product-card-body">
-                            <h5><a href="{{ route('products.show', $product->slug) }}">{{ $product->name }}</a></h5>
-                            <div class="price">{{ number_format($product->price, 0, ',', '.') }}đ</div>
-                            <a href="{{ route('products.show', $product->slug) }}" class="btn btn-add-cart">Xem chi tiết</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
         </div>
-    </div>
-</section>
-
-<section class="deal-banner my-5">
-    <h3><i class="bi bi-star-fill"></i> Ưu đãi trong tuần</h3>
-    <p class="lead">Giảm đến 50% cho toàn bộ sản phẩm Thu Đông!</p>
-    <a href="{{ route('promotions.index') }}" class="btn btn-dark btn-lg">Mua ngay</a>
-</section>
-
-<section class="container my-5">
-    <h2 class="text-center mb-4" style="font-weight: 700;">Khuyến mãi & Ưu đãi</h2>
-    <div class="row g-4">
-        @forelse ($promotions as $promo)
-            <div class="col-md-4">
-                <div class="promo-card h-100">
-                    <div class="promo-card-body">
-                        <h5 class="promo-card-title">
-                            @if($promo->type == 'percent')
-                                Giảm {{ $promo->value }}%
-                            @else
-                                Giảm {{ number_format($promo->value, 0, ',', '.') }}đ
-                            @endif
-                        </h5>
-                        <p class="promo-card-description">Sử dụng mã bên dưới khi thanh toán:</p>
-                        <div class="promo-code-wrapper">
-                            <span class="promo-code" id="home-code-{{ $promo->id }}">{{ $promo->code }}</span>
-                            <button class="btn-copy-code btn btn-primary btn-sm" data-clipboard-target="#home-code-{{ $promo->id }}">
-                                Sao chép
-                            </button>
-                        </div>
-                    </div>
-                </div>
+        <div class="mb-12 text-center">
+            <h2 class="text-3xl font-extrabold text-gray-900">Sản phẩm Mới nhất</h2>
+            <p class="mt-4 text-lg text-gray-600">Khám phá những sản phẩm vừa cập bến</p>
+        </div>
+        @if ($latestProducts->count() > 0)
+            <div class="grid grid-cols-1 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                @foreach ($latestProducts as $product)
+                    <x-product-card :product="$product" />
+                @endforeach
             </div>
-        @empty
-            <div class="col">
-                <p class="text-center text-muted">Hiện chưa có chương trình khuyến mãi nào.</p>
-            </div>
-        @endforelse
+        @else
+            <p class="text-center text-gray-500 text-lg">Cửa hàng đang cập nhật sản phẩm.</p>
+        @endif
     </div>
-    <div class="text-center mt-4">
-        <a href="{{ route('promotions.index') }}" class="btn btn-outline-dark">Xem tất cả khuyến mãi</a>
-    </div>
-</section>
-
 @endsection

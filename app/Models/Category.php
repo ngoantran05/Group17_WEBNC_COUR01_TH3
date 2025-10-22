@@ -1,12 +1,32 @@
 <?php
 namespace App\Models;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model {
-    protected $guarded = [];
-    public function products(){ return $this->hasMany(Product::class); }
-    public function productTypes()
+class Category extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'name', 'slug', 'description', 'parent_id', 'is_active', 'order',
+    ];
+
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
+
+    public function parent()
     {
-        return $this->hasMany(ProductType::class);
+        return $this->belongsTo(Category::class, 'parent_id', 'id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Category::class, 'parent_id', 'id');
+    }
+    
+    public function products()
+    {
+        return $this->hasMany(Product::class);
     }
 }

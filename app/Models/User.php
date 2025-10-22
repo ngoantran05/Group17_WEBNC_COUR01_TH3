@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Models;
-
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -15,9 +13,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'phone_number', 
-        'address',
-        'role',
+        'role', 
     ];
 
     protected $hidden = [
@@ -25,16 +21,13 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+    
     public function orders()
     {
         return $this->hasMany(Order::class);
-    }
-    public function cart()
-    {
-    return $this->hasOne(Cart::class);
-    }
-    public function isAdmin(): bool
-    {
-        return $this->role === 'admin';
     }
 }
